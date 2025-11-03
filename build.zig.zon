@@ -1,0 +1,40 @@
+.{
+    .name = .glfw_opengl_template,
+    .version = "0.0.0",
+    .fingerprint = 0x6209e483a755234b, // Changing this has security and trust implications.
+    .minimum_zig_version = "0.15.1",
+    .dependencies = .{
+        .glfw_zig = .{
+            .url = "git+https://github.com/tiawl/glfw.zig#d4e35d81f30ec1398d5b40744968459d5a8786e6",
+            .hash = "glfw_zig-1.0.0-NrvYo77XGQBb0-E-2U1eurqWuIJeI1zFbKC2vZaeKORt",
+        },
+        .zglfw = .{
+            .url = "git+https://github.com/IridescenceTech/zglfw#e05188a71db6053ec56bba83a27fb736a26562ce",
+            .hash = "zglfw-0.1.0-BghZXabUAACfsXVTPWvmy44XLsc-wux2G9w8Mbp523pJ",
+        },
+        .zigglgen = .{
+            .url = "git+https://github.com/castholm/zigglgen#b624cc7d2e984f61c63a83a3d0ad6c686782f961",
+            .hash = "zigglgen-0.4.0-bmyqLV6PLwAt0VCiGVgz6kZ448zaiTix2Z8MXEEuN4Vi",
+        },
+        .zgui = .{
+            .url = "git+https://github.com/zig-gamedev/zgui#ccc38b56f87911ecff19beb05b63051ddb31943e",
+            .hash = "zgui-0.6.0-dev--L6sZFbybQDHtS6UUY09kjI1tsfZISFdrOD45xyoCHjX",
+        },
+        .zpool = .{
+            .url = "git+https://github.com/zig-gamedev/zpool#7829cf02f78e8c39e19b802ccb47ed44037299c2",
+            .hash = "zpool-0.11.0-dev-bG692QtEAQCyqBnzSBJbJlY0-a_3v1YcjFTGmg0VBjOc",
+        },
+        .zgpu = .{
+            .url = "git+https://github.com/zig-gamedev/zgpu#b582a62c13af1a8228f72c47ea2eaa21259760eb",
+            .hash = "zgpu-0.12.0-dev-nqFT5IChCACWEis11EjrBQGaA0QXEqXfsi1e6cF3_AL3",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        // For example...
+        //"LICENSE",
+        //"README.md",
+    },
+}
