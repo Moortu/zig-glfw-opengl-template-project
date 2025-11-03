@@ -10,11 +10,6 @@ pub fn build(b: *std.Build) void {
         .target = target,
     });
 
-    const glfw_zig = b.dependency("glfw_zig", .{
-        .target = target,
-        .optimize = optimize,
-    });
-
     const zglfw = b.dependency("zglfw", .{
         .target = target,
         .optimize = optimize,
@@ -51,14 +46,15 @@ pub fn build(b: *std.Build) void {
 
     exe.root_module.addImport("gl", gl_bindings);
     exe.root_module.addImport("zgui", zgui.module("root"));
-    exe.root_module.addImport("zglfw", zglfw.module("glfw"));
+    exe.root_module.addImport("zglfw", zglfw.module("root"));
     exe.root_module.addImport("zpool", zpool.module("root"));
     exe.root_module.addImport("zgpu", zgpu.module("root"));
 
     // Link the compiled GLFW library from glfw_zig so zglfw's extern declarations resolve
-    exe.linkLibrary(glfw_zig.artifact("glfw"));
+    if (target.result.os.tag != .emscripten) {
+        exe.linkLibrary(zglfw.artifact("glfw"));
+    }
     exe.linkLibrary(zgui.artifact("imgui"));
-    exe.linkLibrary(glfw_zig.artifact("glfw"));
 
     b.installArtifact(exe);
 
